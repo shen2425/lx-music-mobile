@@ -7,6 +7,7 @@ import SourceName from './SourceName'
 import Language from './Language'
 import FontSize from './FontSize'
 import ShareType from './ShareType'
+import DownloadPath from './DownloadPath'
 import IsStartupAutoPlay from './IsStartupAutoPlay'
 import IsStartupPushPlayDetailScreen from './IsStartupPushPlayDetailScreen'
 import IsAutoHidePlayBar from './IsAutoHidePlayBar'
@@ -39,6 +40,7 @@ export default memo(() => {
       <Language />
       <FontSize />
       <ShareType />
+      <DownloadPath />
       <Source />
       <SourceName />
     </Section>

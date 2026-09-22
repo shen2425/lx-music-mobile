@@ -69,6 +69,7 @@ const defaultSetting: LX.AppSetting = {
   'list.addMusicLocationType': 'top',
 
   'download.fileName': '歌名 - 歌手',
+  'download.savePath': '/storage/emulated/0/Music/LX Music',
 
   'sync.enable': false,
 

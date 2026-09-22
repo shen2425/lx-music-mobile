@@ -12,6 +12,7 @@ import { type Metadata } from '@/components/MetadataEditModal'
 import musicSdk from '@/utils/musicSdk'
 import { getListMusicSync } from '@/utils/listManage'
 import { clearMusicUrlByMusic } from '@/utils/data'
+import { downloadMusic } from '@/core/music/download'
 
 export const handlePlay = (listId: SelectInfo['listId'], index: SelectInfo['index']) => {
   void playList(listId, index)
@@ -70,6 +71,14 @@ export const handleUpdateMusicInfo = (listId: SelectInfo['listId'], musicInfo: L
 
 export const handleShare = (musicInfo: SelectInfo['musicInfo']) => {
   shareMusic(settingState.setting['common.shareType'], settingState.setting['download.fileName'], musicInfo)
+}
+
+export const handleDownload = async(musicInfo: SelectInfo['musicInfo']) => {
+  if (musicInfo.source == 'local') return
+  await downloadMusic(musicInfo).catch((err: Error) => {
+    console.log(err)
+    toast(global.i18n.t('download_status_error_response') + err.message, 'long')
+  })
 }
 
 
